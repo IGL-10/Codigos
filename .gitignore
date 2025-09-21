@@ -60,3 +60,14 @@ dkms.conf
 *.suo
 *.userosscache
 *.sln.docstates
+
+# Archivos de IntelliSense
+*.ipch
+*.dbmdl
+*.opendb
+*.vsidx
+
+# Archivos de configuración local
+*.json
+!package.json
+!*.config.json
