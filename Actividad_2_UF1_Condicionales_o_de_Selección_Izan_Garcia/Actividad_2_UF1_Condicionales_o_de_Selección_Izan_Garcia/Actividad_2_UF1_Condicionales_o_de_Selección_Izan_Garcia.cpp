@@ -52,8 +52,8 @@ int main()
 		printf("El numero mas grande es: %d\n", num1);                            // Tambien he probado crear un else if para el caso 3 y un else para 3 numeros iguales, si me introducen 7 2 2 es decir 2 numeros iguales pequeños no hay problema
 	}
 	else if (num2 >= num1 && num2 >= num3)                                        // pero si los que se repiten son grande 5 5 2 entonces salta directamente a else "los numeros introducidos son iguales" asi que esta es la manera mas correcta que he encontrado que si son iguales da el numero introducido.
-	{
-		printf("El numero mas grande es: %d\n", num2);
+	{																
+		printf("El numero mas grande es: %d\n", num2);							  /tambien se podria con decimales.
 	}
 	else
 	{
@@ -70,4 +70,30 @@ int main()
 trabajador por concepto de las horas extras trabajadas en una empresa, sabiendo que cuando las horas
 de trabajo exceden de 40, el resto se consideran horas extras y que estas se pagan al doble de una hora
 normal, el precio hora es de 20€.*/
+
+/*
+int main()
+{
+	float horas_trabajadas, horas_extra;         // horas extra solo se utiliza en el else, tambien se podria declarar ahi para gastar menos memoria pero no podriamos utilizarla en el resto del codigo          
+	float precio_hora = 20.0f, precio_hora_extra = precio_hora * 2;                       // pongo la f para ahorrar memoria porque sin poner la f lo convierte a un double 
+	float nomina;
+
+	printf("Introduce el numero de horas trabajadas: ");
+	scanf_s("%f", &horas_trabajadas);
+
+	if (horas_trabajadas <= 40)
+	{
+		nomina = horas_trabajadas * precio_hora;
+		printf("Tu salario este mes es de: %.2f euros\n", nomina);
+	}
+	else
+	{
+		horas_extra = horas_trabajadas - 40;                   // para saber las horas extra restamos 40 que es el limite antes de ser "extras" a las horas trabajadas.
+		nomina = horas_extra * precio_hora_extra + precio_hora * 40;                   // no hacen falta parentesis por el orden de prioridad de las operaciones
+		printf("Tu salario este mes es de: %.2f euros\n", nomina);
+	}
+	return 0;
+}
+*/
+
 
