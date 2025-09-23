@@ -1,9 +1,9 @@
-#include <stdio.h>
+ï»¿#include <stdio.h>
 
 //Ejercicio 1
 
-/* Pedir y leer 2 números enteros; si los números son iguales multiplicarlos y mostrar el resultado, si el
-primer número es mayor que el segundo, realizar una resta y mostrar el resultado, si no realizar una
+/* Pedir y leer 2 nÃºmeros enteros; si los nÃºmeros son iguales multiplicarlos y mostrar el resultado, si el
+primer nÃºmero es mayor que el segundo, realizar una resta y mostrar el resultado, si no realizar una
 suma y mostrarla por pantalla. */
 
 /*
@@ -37,7 +37,7 @@ int main ()
 
 //Ejercicio 2
 
-/* Pedir y leer tres números diferentes e imprimir el número mayor de los tres. */
+/* Pedir y leer tres nÃºmeros diferentes e imprimir el nÃºmero mayor de los tres. */
 
 /*
 int main()
@@ -49,7 +49,7 @@ int main()
 
 	if (num1 >= num2 && num1 >= num3)
 	{
-		printf("El numero mas grande es: %d\n", num1);                            // Tambien he probado crear un else if para el caso 3 y un else para 3 numeros iguales, si me introducen 7 2 2 es decir 2 numeros iguales pequeños no hay problema
+		printf("El numero mas grande es: %d\n", num1);                            // Tambien he probado crear un else if para el caso 3 y un else para 3 numeros iguales, si me introducen 7 2 2 es decir 2 numeros iguales pequeÃ±os no hay problema
 	}
 	else if (num2 >= num1 && num2 >= num3)                                        // pero si los que se repiten son grande 5 5 2 entonces salta directamente a else "los numeros introducidos son iguales" asi que esta es la manera mas correcta que he encontrado que si son iguales da el numero introducido.
 	{																
@@ -66,10 +66,10 @@ int main()
 
 // Ejercicio 3
 
-/*Pedir por pantalla el número de horas trabajadas y determinar la cantidad de dinero que recibirá un
+/*Pedir por pantalla el nÃºmero de horas trabajadas y determinar la cantidad de dinero que recibira un
 trabajador por concepto de las horas extras trabajadas en una empresa, sabiendo que cuando las horas
 de trabajo exceden de 40, el resto se consideran horas extras y que estas se pagan al doble de una hora
-normal, el precio hora es de 20€.*/
+normal, el precio hora es de 20â‚¬.*/
 
 /*
 int main()
@@ -96,4 +96,39 @@ int main()
 }
 */
 
+// Ejercicio 4
+
+/*Calcular el nÃºmero de pulsaciones que debe tener una persona por cada 10 segundos de ejercicio
+aerobico; la fÃ³rmula que se aplica cuando el sexo es femenino es: num_pulsaciones = (220 âˆ’ edad)/10 y
+si el sexo es masculino: num_pulsaciones = (210 âˆ’ edad)/10*/
+
+int main()
+{
+	int edad, sexo;
+	int num_pulsaciones;
+
+	printf("Introduce tu edad: ");
+	scanf_s("%d", &edad);
+
+	printf("Introduce tu sexo (0 para Masculino y 1 para Femenino): ");
+	scanf_s("%d", &sexo);
+
+	switch (sexo)
+	{
+	case 0:
+		num_pulsaciones = (210 - edad) / 10;
+		break;
+
+	case 1:
+		num_pulsaciones = (220 - edad) / 10;
+		break;
+
+	default:
+		printf("Te has equivocado\n");
+		return 1;
+	}
+	printf("Tus pulsaciones cada 10 segundos son %d\n", num_pulsaciones);
+
+	return 0;
+}
 
