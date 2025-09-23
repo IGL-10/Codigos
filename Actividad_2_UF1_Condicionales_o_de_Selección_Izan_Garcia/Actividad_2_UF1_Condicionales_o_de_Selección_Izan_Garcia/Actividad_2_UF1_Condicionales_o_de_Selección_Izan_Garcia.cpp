@@ -53,7 +53,7 @@ int main()
 	}
 	else if (num2 >= num1 && num2 >= num3)                                        // pero si los que se repiten son grande 5 5 2 entonces salta directamente a else "los numeros introducidos son iguales" asi que esta es la manera mas correcta que he encontrado que si son iguales da el numero introducido.
 	{																
-		printf("El numero mas grande es: %d\n", num2);							  /tambien se podria con decimales.
+		printf("El numero mas grande es: %d\n", num2);							  //tambien se podria con decimales.
 	}
 	else
 	{
@@ -74,7 +74,7 @@ normal, el precio hora es de 20€.*/
 /*
 int main()
 {
-	float horas_trabajadas, horas_extra;         // horas extra solo se utiliza en el else, tambien se podria declarar ahi para gastar menos memoria pero no podriamos utilizarla en el resto del codigo          
+	float horas_trabajadas, horas_extra;                                                   // horas extra solo se utiliza en el else, tambien se podria declarar ahi para gastar menos memoria pero no podriamos utilizarla en el resto del codigo          
 	float precio_hora = 20.0f, precio_hora_extra = precio_hora * 2;                       // pongo la f para ahorrar memoria porque sin poner la f lo convierte a un double 
 	float nomina;
 
@@ -84,13 +84,13 @@ int main()
 	if (horas_trabajadas <= 40)
 	{
 		nomina = horas_trabajadas * precio_hora;
-		printf("Tu salario este mes es de: %.2f euros\n", nomina);
+		printf("Tu salario esta semana es de: %.2f euros\n", nomina);
 	}
 	else
 	{
-		horas_extra = horas_trabajadas - 40;                   // para saber las horas extra restamos 40 que es el limite antes de ser "extras" a las horas trabajadas.
+		horas_extra = horas_trabajadas - 40;                                            // para saber las horas extra restamos 40 que es el limite antes de ser "extras" a las horas trabajadas.
 		nomina = horas_extra * precio_hora_extra + precio_hora * 40;                   // no hacen falta parentesis por el orden de prioridad de las operaciones
-		printf("Tu salario este mes es de: %.2f euros\n", nomina);
+		printf("Tu salario esta semana es de: %.2f euros\n", nomina);
 	}
 	return 0;
 }
@@ -102,6 +102,7 @@ int main()
 aerobico; la fórmula que se aplica cuando el sexo es femenino es: num_pulsaciones = (220 − edad)/10 y
 si el sexo es masculino: num_pulsaciones = (210 − edad)/10*/
 
+/*
 int main()
 {
 	int edad, sexo;
@@ -131,4 +132,59 @@ int main()
 
 	return 0;
 }
+*/
 
+// Ejercicio 5
+
+/*En una tienda se efectúa una promoción en la cual se hace un descuento sobre el valor de la compra total
+según el color de la bolita que el cliente saque al pagar en caja. Si la bolita es de color blanco no se le
+hará descuento alguno, si es verde se le hará un 10% de descuento, si es amarilla un 25%, si es azul un
+50% y si es roja un 100%. Determinar la cantidad final que el cliente deberá pagar por su compra se sabe
+que solo hay bolitas de los colores mencionados.
+La codificación de las bolitas:
+1-blanco
+2-verde
+3-amarilla
+4-azul
+5-roja
+Pedir el color de la bolita y el total de la compra.*/
+
+/*
+int main()
+{
+	float precio, precio_final, porcentaje_descuento;
+	int color_bolita;
+
+	printf("Introduce el precio de la compra: ");
+	scanf_s("%f", &precio);
+
+	printf("Introduce el color de la bolita (1-blanco, 2-verde, 3-amarilla, 4-azul, 5-roja): ");
+	scanf_s("%d", &color_bolita);
+
+	switch (color_bolita)
+	{
+	case 1:
+		porcentaje_descuento = 0.0f;
+		break;
+	case 2:
+		porcentaje_descuento = 0.10f;
+		break;
+	case 3:
+		porcentaje_descuento = 0.25f;
+		break;
+	case 4:
+		porcentaje_descuento = 0.50f;
+		break;
+	case 5:
+		porcentaje_descuento = 1.0f;
+		break;
+	default:
+		printf("Te has equivocado\n");
+		return 1;
+	}
+	precio_final = precio - (precio * porcentaje_descuento);                                                    // tambien podria haber hecho precio *(1 - porcentaje_descuento) 
+	printf("El precio despues del descuento es %.2f euros\n", precio_final);
+
+	return 0;
+}
+*/
