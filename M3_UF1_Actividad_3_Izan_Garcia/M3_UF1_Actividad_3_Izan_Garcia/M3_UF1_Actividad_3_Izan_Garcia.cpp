@@ -235,7 +235,101 @@ programa nos pedirá la combinación para abrirla. Si no acertamos, se nos mostrar
 mensaje “Lo siento, esa no es la combinación” y si acertamos se nos dirá “La caja fuerte se ha        
 abierto satisfactoriamente”.*/
 
+/*
+int main ()
+{
+	const int combinacion_correcta = 2007;
+	int combinacion;
+
+	printf("Introduce la combinacion de la caja fuerte (4 digitos): ");
+	scanf_s("%d", &combinacion);
+
+	while (combinacion != combinacion_correcta)
+	{
+		printf("Lo siento, esa no es la combinacion\n");
+		printf("Introduce la combinacion: ");
+		scanf_s("%d", &combinacion);
+	}
+	
+	printf("La caja fuerte se ha abierto satisfactoriamente\n");
+	
+	return 0;
+}
+*/
+
+// ejercicio 8 BORRADOR  (Funciona pero me di cuenta tarde que no declare las variebles de intentos)
+
+/*Modifica el programa anterior para que tengamos cuatro oportunidades para abrir la caja
+fuerte.*/
+
+/*
 int main()
 {
-	
+	const int combinacion_correcta = 2007;
+	int combinacion;
+
+	printf("Introduce la combinacion de la caja fuerte (4 digitos): ");
+	scanf_s("%d", &combinacion);
+
+	while (combinacion != combinacion_correcta)
+	{	
+		int i;
+
+		for (i = 1; i < 4 && combinacion != combinacion_correcta; i++)
+		{
+			printf("Lo siento, esa no es la combinacion\n");
+			printf("Introduce la combinacion: ");
+			scanf_s("%d", &combinacion);
+		}
+
+		if (i == 4)
+		{
+			printf("Te has quedado sin intentos\n");
+			return 0;
+		}
+		
+	}
+
+	printf("La caja fuerte se ha abierto satisfactoriamente\n");
+
+	return 0;
 }
+*/
+
+// Ejercicio 8 FINAL (Mas escalable y correcto que el BORRADOR)
+
+/*Modifica el programa anterior para que tengamos cuatro oportunidades para abrir la caja
+fuerte.*/
+
+/*
+int main()
+{
+	int combinacion;
+	const int combinacion_correcta = 2007;
+	int intentos = 1;  // aqui declaro que intentos es igual a 1 porque siempre va a haber almenos un intento
+	const int intentos_maximos = 4;
+
+	printf("Introduce la combinacion de la caja fuerte (4 digitos): ");
+	scanf_s("%d", &combinacion);
+
+	while(combinacion != combinacion_correcta && intentos < intentos_maximos)     // si no declaramos que intetnos es igual a 1 aqui podriamos poner  - 1 porque si no serian 5 intentos, pero al final del codigo acabariamos con intentos = 3 aunque haya hecho 4, me parece mejor idea declarar que es = 1)          
+	{
+		
+		printf("Lo siento, esa no es la combinacion. Te quedan %d intentos\n", intentos_maximos - intentos);
+		printf("Introduce la combinacion: ");
+		scanf_s("%d", &combinacion);
+		intentos++;
+	}
+	
+	if (combinacion == combinacion_correcta)
+	{
+		printf("La caja fuerte se ha abierto satisfactoriamente\n");
+	}
+	else
+	{
+		printf("Te has quedado sin intentos\n");
+	}
+
+	return 0;
+}
+*/
