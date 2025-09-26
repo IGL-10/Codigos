@@ -257,7 +257,7 @@ int main ()
 }
 */
 
-// ejercicio 8 BORRADOR  (Funciona pero me di cuenta tarde que no declare las variebles de intentos)
+// ejercicio 8 BORRADOR  (Funciona pero me di cuenta tarde que no declare las variables de intentos)
 
 /*Modifica el programa anterior para que tengamos cuatro oportunidades para abrir la caja
 fuerte.*/
@@ -328,6 +328,83 @@ int main()
 	else
 	{
 		printf("Te has quedado sin intentos\n");
+	}
+
+	return 0;
+}
+*/
+
+// Ejercicio 9
+
+/*Realiza un programa que nos diga cuántos dígitos tiene un número introducido por teclado.*/
+
+/*
+int main()
+{
+	int num;
+	int cifras = 0;        // declaro la variable porque si no puedo utilizarla en los if y while 
+
+	printf("Introduce un numero: ");
+	scanf_s("%d", &num);
+
+	if (num == 0)
+	{
+		cifras++;               // compruebo que si el numero es 0 le ponga una cifra, porque en el while de abajo si lo permito poniendo num >= 0 me da bucle infinito
+	}
+	else if (num < 0)
+	{
+		num = -num;             // aqui convierto si nos ponen un numero negativo en positivo porque por ejemplo -100 tiene las mismas cifras que 100, pero con el negativo el codigo no funciona
+	}
+
+	while (num > 0)
+	{
+		num = num / 10;     // ire diviendo entre 10 el numero hasta llegar a 0 por cada vez que divida aumentare en 1 el valor de "cifras"
+		cifras++;
+	}
+
+	printf("tu numero tiene %d cifras\n", cifras);
+
+	return 0;
+}
+*/
+
+// Ejercicio 10
+
+/*10. Escribe un programa que diga si un número introducido por teclado es o no primo. Un número
+primo es aquel que sólo es divisible entre él mismo y la unidad.*/
+
+/*
+int main()
+
+{
+	int num;
+	int divisor_encontrado = 0;
+
+	printf("Introduce un numero para saber si es primo o no: ");
+	scanf_s("%d", &num);
+
+	if (num <= 1)                                        // ponemos esta condicion para descartar los numeros 0 y 1 y los negativos
+	{
+		printf("Tu numero no es primo\n");
+	}
+	else
+	{
+		for (int i = 2; i < num; i++)              
+		{
+			if (num % i == 0)                //para saber si es primo o no utilizamos esta condicion que si el numero es divisible por algun numero entre 2 y el signfica que ya no es primo y hemos encontrado otro divisor aparte de 1 y el mismo
+			{
+				divisor_encontrado = 1;                         
+				break;	                         // ponemos break para parar el bucle porque ya sabemos que no es primo
+			}
+		}
+		if (divisor_encontrado == 0)
+		{
+			printf("Tu numero es primo\n");
+		}
+		else
+		{
+			printf("Tu numero no es primo\n");
+		}
 	}
 
 	return 0;
