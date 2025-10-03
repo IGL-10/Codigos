@@ -214,7 +214,8 @@ int main()
 		
 	}
 
-	printf("\n");
+	printf("\nEl numero mas pequeno es %d\n", min);
+	printf("El numero mas grande es %d\n\n", max);
 
 	suma = max + min;                             // Sumamos los valores y los guardamos en la ultima posicion del array
 	v1[SIZE - 1] = suma;
