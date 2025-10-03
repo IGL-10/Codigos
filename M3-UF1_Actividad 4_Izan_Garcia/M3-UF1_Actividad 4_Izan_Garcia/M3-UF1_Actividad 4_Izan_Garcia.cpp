@@ -10,14 +10,16 @@ Se sabe que dichos datos son de tipo entero.
 El máximo se inicializa con el valor de la posición 0 del vector.*/
 
 /*
+#define SIZE 20
+
 int main()
 {
-	int v1[20] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
+	int v1[SIZE] = { 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 };
 	int suma = 0;
 	int max = v1[0];
 	int posicion = 0;
 
-	for (int i = 0; i < 20; i++)
+	for (int i = 0; i < SIZE; i++)
 	{
 		printf("v1[%d] = %d\n", i, v1[i]);                               // Leemos el vector de 20 posiciones
 		
@@ -277,7 +279,7 @@ realizar la modificación del vector calcula cuántos valores son pares dentro d
 
 int main()
 {
-	int v1[SIZE]{ 1,2,3,4,5,6 };
+	int v1[SIZE] = { 1,2,3,4,5,6 };
 	int z;
 	int par = 0;
 
