@@ -15,7 +15,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Actividad_5_Hundir_la_flota_Izan_Garcia.cpp">
+    <ClCompile Include="Izan_Garcia_HundirLaFlota.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

@@ -21,8 +21,8 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>17.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{77d8f3ab-cb0d-4728-9e59-b2f4f7f13238}</ProjectGuid>
-    <RootNamespace>Actividad5HundirlaflotaIzanGarcia</RootNamespace>
+    <ProjectGuid>{7c589f5d-f331-4d7d-983d-ff30bf05cfd0}</ProjectGuid>
+    <RootNamespace>IzanGarciaHundirLaFlota</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -123,7 +123,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actividad_5_Hundir_la_flota_Izan_Garcia.cpp" />
+    <ClCompile Include="Izan_Garcia_HundirLaFlota.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
