@@ -32,16 +32,18 @@ int main()
 			if (x < 0 || x >= MAP_SIZE || y < 0 || y >= MAP_SIZE) 
 			{
 				printf("\nFuera del mapa, repite.\n");
-				j--; 
-				continue;                                                                           // Utilizo el continue porque no quiero que siga con el codigo pero tampoco que se salga del bucle como un break asi que hacemos un continue y le restamos 1 a j para que no cuente la iteración.
+				j--;                                                                         
 			}
-			if (mapa[x][y] == 'B')
+			else if (mapa[x][y] == 'B')
 			{
 				printf("\nYa hay un barco en esa posicion, repite.\n");
 				j--;
-				continue;
 			}
-			mapa[x][y] = 'B';
+			else
+			{
+				mapa[x][y] = 'B';
+			}
+			
 		}
 		printf("\n");
 	}
@@ -52,15 +54,16 @@ int main()
 	{
 		printf("Te quedan %d posiciones!\n\n", SHIPS * SHIPS_SIZE - aciertos);
 		printf("Donde quieres disparar? (fila columna):	");                               // Pido donde va a ser el disparo
-		scanf_s("%d %d", &x, &y);
-		printf("\n");
-
-		if (x < 0 || x >= MAP_SIZE || y < 0 || y >= MAP_SIZE)
-		{
-			printf("Fuera del mapa, repite.\n\n");                    // Compruebo que el disparo este dentro de los limites del mapa
-			continue;
-		}
-
+		
+		do {
+			scanf_s("%d %d", &x, &y);
+			printf("\n");
+			if (x < 0 || x >= MAP_SIZE || y < 0 || y >= MAP_SIZE)
+			{
+				printf("Fuera del mapa, repite.\n\n");                    // Compruebo que el disparo este dentro de los limites del mapa
+			}
+		} while (x < 0 || x >= MAP_SIZE || y < 0 || y >= MAP_SIZE);
+		
 		if (mapa[x][y] == '-')
 		{
 			mapa[x][y] = 'O';
@@ -81,7 +84,6 @@ int main()
 		{
 			for (int j = 0; j < MAP_SIZE; j++)
 			{
-
 				if (mapa[i][j] == 'B')
 				{
 					printf(" - ");
