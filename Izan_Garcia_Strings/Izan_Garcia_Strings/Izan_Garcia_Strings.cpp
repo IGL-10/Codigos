@@ -34,8 +34,8 @@ int main()
 	printf("\nLa palabra al reves es: %s\n", palabra_invertida);
 
 	if (strcmp(palabra, palabra_invertida) == 0)                      // Mirando la libreria string.h y buscando la forma de comparar strings he visto que podemos utilizar strcmp, si las palabras son iguales nos devolvera 0.
-	{
-		printf("\nLa palabra es palindroma\n");
+	{																  // La función strcmp viene de la libreria string.h y  compara dos cadenas de caracteres y devuelve un valor entero: 0 si las cadenas son iguales, un valor positivo si la primera cadena es mayor que la segunda, o un valor negativo si la primera es menor
+		printf("\nLa palabra es palindroma\n");                       // La comparación se realiza carácter por carácter, basándose en sus valores ASCII
 	}
 	else
 	{
@@ -143,4 +143,88 @@ int main()
 	return 0;
 }
 */
+
+// Ejercicio 4
+
+/*Escribe un programa que lea del teclado una cadena y muestre en la pantalla la cantidad de
+consonantes y de vocales que contiene.*/
+
+/*
+int main()
+{
+	char frase[100];
+	int vocal = 0;
+	int consonante = 0;
+
+	printf("Dime una frase: ");
+	gets_s(frase);
+	int tam_frase = strlen(frase);
+
+	for (int i = 0; i < tam_frase; i++)
+	{
+		if (frase[i] == 'a' || frase[i] == 'e' || frase[i] == 'i' || frase[i] == 'o' || frase[i] == 'u' || frase[i] == 'A' || frase[i] == 'E' || frase[i] == 'I' || frase[i] == 'O' || frase[i] == 'U')
+		{
+			vocal++;
+		}
+		else if (frase[i] != ' ' && frase[i] != '?' && frase[i] != '!' && frase[i] != '.')
+		{
+			consonante++;
+		}
+	}
+
+	printf("\nLa frase tiene %d vocales\n", vocal);
+	printf("\nLa frase tiene %d consonantes\n", consonante);
+
+	
+	return 0;
+}
+*/
+
+// Ejercicio 5
+
+/*Escribir un programa que lea una frase y a continuación visualice cada palabra de la frase una debajo
+de otra, seguida cada palabra del número de letras que compone cada palabra.*/
+
+int main()
+{
+	char frase[100];
+	char palabras[50][50];
+	
+	printf("Dime una frase: ");
+	gets_s(frase);
+
+	int j = 0;
+	int c = 0;
+
+	for (int i = 0; frase[i] != '\0'; i++)
+	{
+		
+		if (frase[i] != ' ' && frase[i] != '?' && frase[i] != '!')
+		{
+			palabras[j][c] = frase[i];
+			c++;
+		}
+		else
+		if (c > 0)
+		{
+			palabras[j][c] = '\0';
+			j++;
+			c = 0;
+		}
+	}
+	if (c > 0)
+	{
+		palabras[j][c] = '\0';
+		j++;
+		c = 0;
+	}
+	
+	for (int i = 0; i < j; i++)
+	{
+		printf("%s Tiene %d letras\n", palabras[i], strlen(palabras[i]));
+	}	
+}
+
+
+
 
