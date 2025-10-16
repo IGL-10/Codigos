@@ -185,6 +185,7 @@ int main()
 /*Escribir un programa que lea una frase y a continuación visualice cada palabra de la frase una debajo
 de otra, seguida cada palabra del número de letras que compone cada palabra.*/
 
+/*
 int main()
 {
 	char frase[100];
@@ -196,34 +197,71 @@ int main()
 	int j = 0;
 	int c = 0;
 
-	for (int i = 0; frase[i] != '\0'; i++)
+	for (int i = 0; frase[i] != '\0'; i++)                          // hago que el bucle termine cuando llegue al final de la frase
 	{
 		
-		if (frase[i] != ' ' && frase[i] != '?' && frase[i] != '!')
+		if (frase[i] != ' ' && frase[i] != '?' && frase[i] != '!' && frase[i] != '.' && frase[i] != ',' && frase[i] != ':' && frase[i] != ';')
 		{
-			palabras[j][c] = frase[i];
-			c++;
+			palabras[j][c] = frase[i];                             // Mientras no encuentre un espacio o simbolo me va a ir guardando las letras de la frase caracter por caracter en una palabra       
+			c++;   
 		}
 		else
-		if (c > 0)
 		{
-			palabras[j][c] = '\0';
-			j++;
-			c = 0;
+			if (c > 0)                                                // Cuando encuentre alguno de los simbolos si habia antes una letra es decir c > 0  cerrara la palabra con '\0' y j++ para que cambie a la siguiente palabra, 														
+			{                                                        // reinicio c a 0 para que empieze a guardar letras desde el inicio.
+				palabras[j][c] = '\0';                              
+				j++;
+				c = 0;
+			}
 		}
 	}
-	if (c > 0)
+	if (c > 0)                                                  // Cuando salga del bucle si la frase acaba en letra no habra entrado en la segunda condicion asi que guardamos el '\0' en la ultima posicion y aumento j para el ultimo bucle que sepa que hay una palabra mas
 	{
-		palabras[j][c] = '\0';
+		palabras[j][c] = '\0'; 
 		j++;
 		c = 0;
 	}
 	
 	for (int i = 0; i < j; i++)
 	{
-		printf("%s Tiene %d letras\n", palabras[i], strlen(palabras[i]));
+		printf("%s tiene %d letras\n", palabras[i], strlen(palabras[i]));             // Muestro las palabras y cuento las letras que tiene
 	}	
 }
+*/
+
+// Ejercicio 6
+
+/*Escribir un programa que lea una frase y sustituya todas las secuencias de dos o más blancos por un
+solo blanco y visualice la frase.*/
+
+/*
+int main()
+{
+	char frase[100];
+
+	printf("Dime una frase: ");
+	gets_s(frase);
+	int tam_frase = strlen(frase);
+
+	for (int i = 0; i < tam_frase; i++)
+	{
+		if (frase[i] == ' ' && frase[i + 1] == ' ')
+		{
+			while (frase[i + 1] == ' ')                              // Hago que si encuentra un esapcio y el sigueinte tambien lo es salte al sigueinte caracter hasta que encuentre un caracter diferente.
+			{
+				i++;
+			}
+			printf("%c", frase[i]);                                // Como el enunciado no lo pide no guardo el resultado en una variable y directamente lo muestro, 											 
+		}                                                          // pero seria cambiar los printf por frase_modificada = frase y darle un contador distinto al de i como por ejemplo j, cerrar con '\0' y hacer un printf
+		else
+		{
+			printf("%c", frase[i]);
+		}
+	}
+
+	return 0;
+}
+*/
 
 
 
