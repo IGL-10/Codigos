@@ -23,7 +23,6 @@ int main()
     Gestor(log);
 
     fclose(log);
-    log = NULL;
 
     return 0;
 }
