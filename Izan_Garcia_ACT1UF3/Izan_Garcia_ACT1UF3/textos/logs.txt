@@ -1,0 +1,2 @@
+1 12345678 DonQuijote Miguel PRESTADO
+1 12345678 DonQuijote Miguel DEVUELTO
