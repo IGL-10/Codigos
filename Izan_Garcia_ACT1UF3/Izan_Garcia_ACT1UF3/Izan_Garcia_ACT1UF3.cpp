@@ -1,28 +1,37 @@
 #include <stdio.h>
-#include <stdlib.h>
 #include <string.h>
 
 void Menu();
-void Gestor(FILE* f);
+void Gestor(FILE* f, FILE* f2);
 void PrestarLibro(FILE* f);
 void DevolverLibro(FILE* f);
-void VerEstadoLibro(FILE* f);
+void VerEstadoLibro(FILE* f, FILE* f2);
 
 int main()
 {
     FILE* log;
+    FILE* log2;
     errno_t err;
+    errno_t err2;
 
-    err = fopen_s(&log, "textos/logs.txt", "a+");
+    err = fopen_s(&log, "textos/prestados.txt", "a+");
     if (err)
     {
         printf("Error al abrir el archivo\n");
         return 0;
     }
 
-    Gestor(log);
+    err2 = fopen_s(&log2, "textos/devueltos.txt", "a+");
+    if (err2)
+    {
+        printf("Error al abrir el archivo\n");
+        return 0;
+    }
+
+    Gestor(log, log2);
 
     fclose(log);
+    fclose(log2);
 
     return 0;
 }
@@ -36,7 +45,7 @@ void Menu()
     printf("Opcion: ");
 }
 
-void Gestor(FILE* f)
+void Gestor(FILE* f, FILE *f2)
 {
     int opcion;
 
@@ -52,10 +61,10 @@ void Gestor(FILE* f)
             PrestarLibro(f);
             break;
         case 2:
-            DevolverLibro(f);
+            DevolverLibro(f2);
             break;
         case 3:
-            VerEstadoLibro(f);
+            VerEstadoLibro(f, f2);
             break;
         }
     } while (opcion != 0);
@@ -107,40 +116,36 @@ void DevolverLibro(FILE* f)
     fprintf(f, "%d %s %s %s DEVUELTO\n", id, isbn, nombre, autor);
 }
 
-void VerEstadoLibro(FILE* f)
+void VerEstadoLibro(FILE* f, FILE* f2)
 {
-    int idBuscado;
-    int id;
-    char isbn[20];
-    char nombre[50];
-    char autor[50];
-    char estado[20];
-    char ultimoEstado[20] = "";
+    int id, id2;
+    char isbn[20], nombre[50], autor[50], estado[20];
+    char isbn2[20], nombre2[50], autor2[50], estado2[20];
+    int devuelto;
 
-    printf("Introduce el ID del libro: ");
-    scanf_s("%d", &idBuscado);
-    getchar(); // limpiar buffer
-
-    rewind(f); // vuelvo al inicio del archivo para poder leerlo completo
+    rewind(f);
 
     while (fscanf_s(f, "%d %s %s %s %s", &id, isbn, 20, nombre, 50, autor, 50, estado, 20) == 5)
     {
-        if (id == idBuscado)
-        {
-            strcpy_s(ultimoEstado, 20, estado); // strcpy_s (string.h) copia una cadena en otra de forma segura y añade '\0'
-        }
-    }
+        devuelto = 0;
+        rewind(f2);
 
-    if (strcmp(ultimoEstado, "PRESTADO") == 0) // strcmp (string.h) compara dos cadenas caracter a caracter (ASCII) y devuelve 0 si son iguales
-    {
-        printf("\nEl libro esta PRESTADO\n");
-    }
-    else if (strcmp(ultimoEstado, "DEVUELTO") == 0) // si strcmp devuelve distinto de 0 significa que las cadenas no son iguales
-    {
-        printf("\nEl libro esta DEVUELTO\n");
-    }
-    else
-    {
-        printf("\nEse libro no existe en el log\n");
+        while (fscanf_s(f2, "%d %s %s %s %s", &id2, isbn2, 20, nombre2, 50, autor2, 50, estado2, 20) == 5)
+        {
+            if (id == id2)
+            {
+                devuelto = 1;
+                break;
+            }
+        }
+
+        if (devuelto)
+        {
+            printf("Libro %s -> DEVUELTO\n", nombre);
+        }
+        else
+        {
+            printf("Libro %s -> PRESTADO\n", nombre);
+        }
     }
 }
