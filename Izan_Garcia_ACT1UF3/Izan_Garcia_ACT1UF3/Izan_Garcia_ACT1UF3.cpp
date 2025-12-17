@@ -9,29 +9,29 @@ void VerEstadoLibro(FILE* f, FILE* f2);
 
 int main()
 {
-    FILE* log;
-    FILE* log2;
+    FILE* prestados;
+    FILE* devueltos;
     errno_t err;
     errno_t err2;
 
-    err = fopen_s(&log, "textos/prestados.txt", "a+");
+    err = fopen_s(&prestados, "textos/prestados.txt", "a+");
     if (err)
     {
         printf("Error al abrir el archivo\n");
         return 0;
     }
 
-    err2 = fopen_s(&log2, "textos/devueltos.txt", "a+");
+    err2 = fopen_s(&devueltos, "textos/devueltos.txt", "a+");
     if (err2)
     {
         printf("Error al abrir el archivo\n");
         return 0;
     }
 
-    Gestor(log, log2);
+    Gestor(prestados, devueltos);
 
-    fclose(log);
-    fclose(log2);
+    fclose(prestados);
+    fclose(devueltos);
 
     return 0;
 }
@@ -79,7 +79,7 @@ void PrestarLibro(FILE* f)
 
     printf("ID: ");
     scanf_s("%d", &id);
-    getchar(); // limpiar buffer
+    getchar();
 
     printf("ISBN: ");
     gets_s(isbn, 20);
@@ -102,7 +102,7 @@ void DevolverLibro(FILE* f)
 
     printf("ID: ");
     scanf_s("%d", &id);
-    getchar(); // limpiar buffer
+    getchar();
 
     printf("ISBN: ");
     gets_s(isbn, 20);
